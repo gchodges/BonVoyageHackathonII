@@ -7,8 +7,10 @@ import Loading from "./components/loading";
 import Footer from "./components/footer";
 import Home from "./views/home";
 import Profile from "./views/profile";
+import Card from 'react-bootstrap/Card'
 
 import "./app.css";
+import CardHeader from "react-bootstrap/esm/CardHeader";
 
 const App = () => {
   const { isLoading } = useAuth0();
@@ -18,8 +20,12 @@ const App = () => {
   }
 
   return (
-    <div id="app" className="d-flex flex-column h-100">
-      <NavBar />
+
+    <Card className="text-center">
+      <CardHeader>
+        <NavBar />
+      </CardHeader>
+      <Card.Title class='fixed-top'>
       <div className="container flex-grow-1">
         <Routes>
           <Route path="/" exact component={Home} />
@@ -27,8 +33,15 @@ const App = () => {
           {/* <Route path="/external-api" component={ExternalApi} /> */}
         </Routes>
       </div>
-      <Footer />
-    </div>
+      </Card.Title>
+      <Card.Body>
+
+      </Card.Body>
+      <Card.Footer class= 'fixed-bottom'>
+        <Footer />
+      </Card.Footer>
+    </Card>
+    
   );
 };
 
